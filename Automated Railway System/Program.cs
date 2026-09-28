@@ -1,4 +1,6 @@
-﻿namespace Automated_Railway_System
+﻿using Automated_Railway_System.Models.Enums;
+
+namespace Automated_Railway_System
 {
     internal class Program
     {

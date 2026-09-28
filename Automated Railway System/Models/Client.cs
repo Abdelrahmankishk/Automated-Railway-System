@@ -1,0 +1,95 @@
+﻿using Automated_Railway_System.Contracts;
+using Automated_Railway_System.Models.Enums;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Automated_Railway_System.Models
+{
+    internal class Client : IDisplayable
+    {
+        private static int _counter = 100;
+        private readonly List<Ticket> _PurchasedTickets = new();
+        private string DateFormat = "dd/MM/yyyy";
+
+        public Client(int age, string name, string? address, bool pensoiner, string dateOfBirth, Stations preferedStation, int travelCount, int totalTraveled)
+        {
+            ClientID = $"USER-{++_counter:D3}";
+            Age = age;
+            Name = name;
+            Address = address;
+            Pensoiner = pensoiner;
+            DateOfBirth = DateOnly.Parse(dateOfBirth);
+            PreferedStation = preferedStation;
+            TravelCount = travelCount;
+            TotalTraveled = totalTraveled;
+        }
+        public Client(int age, string name, string dateOfBirth, Stations preferedStation, int travelCount, int totalTraveled) :this(age, name, null, false, dateOfBirth, preferedStation, travelCount, totalTraveled)
+        {
+        }
+        public string ClientID { get; init; }
+        public int Age { get; init; }
+        public string Name { get; init; }
+        public string? Address { get; set; }
+        public bool Pensoiner { get; init; }
+        public DateOnly DateOfBirth { get; init; }
+        public Stations PreferedStation { get; init; }
+        public int TravelCount { get; init; } = 0;
+        public int TotalTraveled { get; init; } = 0;
+        public IReadOnlyList<Ticket> PurchasedTickets => _PurchasedTickets;
+
+        public bool IsGolden => TravelCount > 50 || TotalTraveled > 10000;   
+
+        public void PurchaseTicket(Ticket ticket)
+        {
+            if (ticket == null)
+            {
+                throw new ArgumentNullException(nameof(ticket), "Ticket cannot be null.");
+            }
+            _PurchasedTickets.Add(ticket);
+        }
+        public bool IsBirthDay()
+        {
+            var today = DateOnly.FromDateTime(DateTime.Today);
+            return today.Month == DateOfBirth.Month && today.Day == DateOfBirth.Day;
+        }
+        public string GetPurchasedTicketsInfo()
+        {
+            if (_PurchasedTickets.Count == 0)
+            {
+                return "No tickets purchased.";
+            }
+            var ticketInfo = new StringBuilder();
+            ticketInfo.AppendLine($"Purchased Tickets for {Name} (Client ID: {ClientID}):");
+            foreach (var ticket in _PurchasedTickets)
+            {
+                ticketInfo.AppendLine($@"- Ticket ID: {ticket.TicketID}
+Train: {ticket.Train.TrainName}
+Seat: {ticket.SeatNumber}
+Date: {ticket.TravelDate}");
+            }
+            return ticketInfo.ToString();
+        }
+        public string DisplayData()
+        {
+            string Clienttype = IsGolden ? "Golden Client" : "Regular Client";
+            string addressInfo = string.IsNullOrEmpty(Address) ? "N/A" : Address;
+            string isPensionerInfo = Pensoiner ? "Yes" : "No";
+            string isGoldenInfo = IsGolden ? "Yes" : "No";
+            return $@"Client ID: {ClientID}
+Name: {Name}
+Client Type: {Clienttype}
+Age: {Age}
+Address: {addressInfo}
+Pensioner: {isPensionerInfo}
+Date of Birth: {DateOfBirth.ToString(DateFormat)}
+Prefered Station: {PreferedStation}
+Is Golden Client: {isGoldenInfo}
+Number of Travels: {TravelCount}
+Total Distance Traveled: {TotalTraveled} km
+Number of Purchased Tickets: {_PurchasedTickets.Count}";
+        }
+    }
+}
