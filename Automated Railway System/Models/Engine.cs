@@ -1,4 +1,5 @@
-﻿using Automated_Railway_System.Models.Enums;
+﻿using Automated_Railway_System.Contracts;
+using Automated_Railway_System.Models.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,15 +8,15 @@ using System.Threading.Tasks;
 
 namespace Automated_Railway_System.Models
 {
-    internal class Engine
+    internal class Engine : IDisplayable
     {
-        int _Counter = 1000;
+        private static int _Counter = 1000;
         const int OilChangeInterval = 20000;
         const int MaintenanceInterval = 100000;
 
         public Engine(EngineTypes type, int distanceTraveled)
         {
-            ID = $"Engine-{_Counter++}";
+            ID = $"Engine-{++_Counter}";
             Type = type;
             DistanceTraveled = distanceTraveled;
         }
@@ -28,7 +29,18 @@ namespace Automated_Railway_System.Models
         public EngineTypes Type { get; init; }
         public int DistanceTraveled { get; init; }
 
-        public bool ChecKOil() => DistanceTraveled >= OilChangeInterval ? true : false;
+        public bool ChecKOil() => DistanceTraveled >= OilChangeInterval && DistanceTraveled <= MaintenanceInterval ? true : false;
         public bool CheckMaintenance() => DistanceTraveled >= MaintenanceInterval ? true : false;
+
+        public string DisplayData()
+        {
+            string oilStatus = ChecKOil() ? "Oil change required!" : "Oil is GOOD";
+            string maintenanceStatus = CheckMaintenance() ? "Maintenance required" : "No Maintenance required";
+            return @$"-------------- {ID} ----------------
+Engine Type: {Type}
+Distance Traveled: {DistanceTraveled} km ({oilStatus}, {maintenanceStatus})
+-------------------------------------
+";
+        }
     }
 }
