@@ -6,7 +6,7 @@ namespace Automated_Railway_System.Models
     internal class Ticket : IReservable,IDisplayable
     {
         private static int _Counter = 0;
-        public const string DateFormat = "dd-MM-yyyy";
+        public const string DateFormat = "dd/MM/yyyy";
 
         public Ticket( decimal price, Train train, Stations startingStation, Stations destinationStation, TicketStatus status, int Distance = 0,DateTime TravelDate = default!)
         {
@@ -68,11 +68,11 @@ namespace Automated_Railway_System.Models
             {
                 throw new InvalidOperationException("Ticket is already reserved!");
             }
-            client.PurchaseTicket(this);
             this.client = client;
             FinalPrice = CalculateFinalPrice();
             Status = TicketStatus.Reserved;
             ReservationDate = DateTime.Now;
+            client.PurchaseTicket(this);
         }
 
         public void CancelReservation()

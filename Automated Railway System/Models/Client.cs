@@ -66,9 +66,14 @@ namespace Automated_Railway_System.Models
             foreach (var ticket in _PurchasedTickets)
             {
                 ticketInfo.AppendLine($@"========================= Ticket ID: {ticket.TicketID} =============================
-Train: {ticket.Train.TrainName}
-Seat: {ticket.SeatNumber}
-Date: {ticket.TravelDate}");
+Train: {ticket.train.Number} , Train Type: {ticket.train.Type}
+TravelDate: {ticket.TravelDate.ToString(Ticket.DateFormat)}
+Reservation Date: { ticket.ReservationDate!.Value.ToString(Ticket.DateFormat)}
+Starting Station: {ticket.StartingStation}
+Destination Station: {ticket.DestinationStation}
+Final Ticket Price: {ticket.FinalPrice}
+===========================================================================
+");
             }
             return ticketInfo.ToString();
         }
