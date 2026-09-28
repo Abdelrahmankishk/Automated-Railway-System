@@ -78,12 +78,13 @@ Date: {ticket.TravelDate}");
             string addressInfo = string.IsNullOrEmpty(Address) ? "N/A" : Address;
             string isPensionerInfo = Pensoiner ? "Yes" : "No";
             string isGoldenInfo = IsGolden ? "Yes" : "No";
-            return $@"Client ID: {ClientID}
+            string ClientType = IsGolden ? "Golden Client" : "Regular Client";
+            return $@" -------------------------- {ClientType} --------------------------
+Client ID: {ClientID}
 Name: {Name}
 Client Type: {Clienttype}
-Age: {Age}
+Age: {Age} - Pensioner: {isPensionerInfo}
 Address: {addressInfo}
-Pensioner: {isPensionerInfo}
 Date of Birth: {DateOfBirth.ToString(DateFormat)}
 Prefered Station: {PreferedStation}
 Is Golden Client: {isGoldenInfo}
