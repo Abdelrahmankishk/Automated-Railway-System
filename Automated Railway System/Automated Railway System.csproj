@@ -8,4 +8,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Extentions\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Images\" />
+    <Folder Include="Models\Enums\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+
 </Project>
