@@ -9,10 +9,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Extentions\" />
     <Folder Include="Helpers\" />
     <Folder Include="Images\" />
-    <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ConsoleTheme">
+      <HintPath>..\..\ConsoleTheme-master\ConsoleTheme\bin\Debug\net8.0\ConsoleTheme.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
