@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Automated_Railway_System.Extentions
 {
-    internal static class StringExtentions
+    public static class StringExtentions
     {
         public static string NormalizeID(this string str)
         {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Automated_Railway_System.Models.Enums
 {
-    internal enum TicketStatus
+    public enum TicketStatus
     {
         Reserved,
         Cancelled,

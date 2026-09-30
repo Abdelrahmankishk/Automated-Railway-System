@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Automated_Railway_System.Models.Enums
 {
-    internal enum TrainServices
+    public enum TrainServices
     {
         WiFi, Meal, Drink, Screens
     }

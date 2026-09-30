@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Automated_Railway_System.Models.Enums
 {
-    internal enum EngineTypes
+    public enum EngineTypes
     {
         GE_ES40ACi,
         Henschel_AA22T,

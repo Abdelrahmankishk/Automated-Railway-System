@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Automated_Railway_System.Contracts
 {
-    internal interface IReservable
+    public interface IReservable
     {
         void Reserve(Client client);
         void CancelReservation();

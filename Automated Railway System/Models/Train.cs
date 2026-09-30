@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Automated_Railway_System.Models
 {
-    internal class Train : IDisplayable
+    public class Train : IDisplayable
     {
         private static int _counter = 100;
         public int Number { get; init; }

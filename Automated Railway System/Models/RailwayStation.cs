@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Automated_Railway_System.Models
 {
-    internal class RailwayStation
+    public class RailwayStation
     {
         private readonly List<Client> _clients = new List<Client>();
         private readonly List<Ticket> _tickets = new List<Ticket>();

@@ -3,7 +3,7 @@ using Automated_Railway_System.Models.Enums;
 
 namespace Automated_Railway_System.Models
 {
-    internal class Ticket : IReservable,IDisplayable
+    public class Ticket : IReservable,IDisplayable
     {
         private static int _Counter = 0;
         public const string DateFormat = "dd/MM/yyyy";

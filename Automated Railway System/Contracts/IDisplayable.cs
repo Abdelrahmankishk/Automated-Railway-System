@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Automated_Railway_System.Contracts
 {
-    internal interface IDisplayable
+    public interface IDisplayable
     {
         string DisplayData();
     }

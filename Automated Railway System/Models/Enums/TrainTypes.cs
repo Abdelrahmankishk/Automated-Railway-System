@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Automated_Railway_System.Models.Enums
 {
-    internal enum TrainTypes
+    public enum TrainTypes
     {
         Talgo,
         VIP,

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Automated_Railway_System.Models
 {
-    internal class Client : IDisplayable
+    public class Client : IDisplayable
     {
         private static int _counter = 100;
         private readonly List<Ticket> _PurchasedTickets = new();
@@ -79,15 +79,13 @@ Final Ticket Price: {ticket.FinalPrice}
         }
         public string DisplayData()
         {
-            string Clienttype = IsGolden ? "Golden Client" : "Regular Client";
+            string ClientType = IsGolden ? "Golden Client" : "Regular Client";
             string addressInfo = string.IsNullOrEmpty(Address) ? "N/A" : Address;
             string isPensionerInfo = Pensoiner ? "Yes" : "No";
             string isGoldenInfo = IsGolden ? "Yes" : "No";
-            string ClientType = IsGolden ? "Golden Client" : "Regular Client";
             return $@" -------------------------- {ClientType} --------------------------
 Client ID: {ClientID}
 Name: {Name}
-Client Type: {Clienttype}
 Age: {Age} - Pensioner: {isPensionerInfo}
 Address: {addressInfo}
 Date of Birth: {DateOfBirth.ToString(DateFormat)}
