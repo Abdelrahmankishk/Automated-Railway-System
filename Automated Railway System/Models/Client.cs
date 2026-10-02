@@ -2,7 +2,9 @@
 using Automated_Railway_System.Models.Enums;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Net.Cache;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,19 +16,19 @@ namespace Automated_Railway_System.Models
         private readonly List<Ticket> _PurchasedTickets = new();
         private string DateFormat = "dd/MM/yyyy";
 
-        public Client(int age, string name, string? address, bool pensoiner, string dateOfBirth, Stations preferedStation, int travelCount, int totalTraveled)
+        public Client(int age, string name, string? address, string dateOfBirth, Stations preferedStation, int travelCount, int totalTraveled)
         {
             ClientID = $"USER-{++_counter:D3}";
             Age = age;
             Name = name;
+            Pensoiner = Age >70 ? true : false;
             Address = address;
-            Pensoiner = pensoiner;
-            DateOfBirth = DateOnly.Parse(dateOfBirth);
+            DateOfBirth = DateOnly.ParseExact(dateOfBirth, "yyyy-MM-dd", CultureInfo.InvariantCulture);
             PreferedStation = preferedStation;
             TravelCount = travelCount;
             TotalTraveled = totalTraveled;
         }
-        public Client(int age, string name, string dateOfBirth, Stations preferedStation, int travelCount, int totalTraveled) :this(age, name, null, false, dateOfBirth, preferedStation, travelCount, totalTraveled)
+        public Client(int age, string name, string dateOfBirth, Stations preferedStation, int travelCount, int totalTraveled) :this(age, name, null, dateOfBirth, preferedStation, travelCount, totalTraveled)
         {
         }
         public string ClientID { get; init; }

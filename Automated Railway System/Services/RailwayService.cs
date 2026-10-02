@@ -30,6 +30,18 @@ namespace Automated_Railway_System.Services
             if(YearOfBirth.IsValidBirthYear(1900, DateTime.Now.Year) == false)
                 throw new ArgumentException("Enter a Valid Year of Birth!");
 
+            string MonthOfBirth = ThemeHelper.Prompt("your Month of Birth (MM)");
+            if(MonthOfBirth.IsValidMonthofBirth() == false)
+                throw new ArgumentException("Enter a Valid Month of Birth!");
+
+            string DayOfBirth = ThemeHelper.Prompt("your Day of Birth (DD)");
+            if(DayOfBirth.IsValidDayOfBirth() == false)
+                throw new ArgumentException("Enter a Valid Day of Birth!");
+
+            string dateOfBirth = $"{YearOfBirth:D4}-{MonthOfBirth:D2}-{DayOfBirth:D2}";
+
+            string address = ThemeHelper.Prompt("your address");
+
         }
     }
 }
