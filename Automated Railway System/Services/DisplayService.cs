@@ -113,7 +113,7 @@ namespace Automated_Railway_System.Services
                 ThemeHelper.PrintError("Ticket not found!");
                 return;
             }
-            ThemeHelper.PrintSuccess($"Reservation for Ticket {ticket.TicketID} has been successfully canceled");
+            ThemeHelper.PrintSuccess($"Reservation for Ticket {ticket.TicketID} has been successfully Canceled");
         }
         public void ShowAddTicketSuccess(Ticket ticket)
         {

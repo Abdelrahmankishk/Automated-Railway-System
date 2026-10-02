@@ -1,4 +1,6 @@
-﻿using Automated_Railway_System.Models.Enums;
+﻿using Automated_Railway_System.Extentions;
+using Automated_Railway_System.Models.Enums;
+using ConsoleTheme;
 
 namespace Automated_Railway_System
 {
@@ -7,6 +9,9 @@ namespace Automated_Railway_System
         static void Main(string[] args)
         {
             Console.WriteLine("Automated Railway System");
+
+            
+
         }
     }
 }
