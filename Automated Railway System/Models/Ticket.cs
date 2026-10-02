@@ -103,9 +103,7 @@ Travel Date: {TravelDate.ToString(DateFormat, CultureInfo.InvariantCulture)}
 Starting Station: {StartingStation}
 Destination Station: {DestinationStation}
 Total Distance: {Distance} km
-Status: {Status}
-{clientInfo}
-";
+Status: {Status} - {clientInfo}";
         }
     }
 }

@@ -43,7 +43,7 @@ namespace Automated_Railway_System.Models
         {
             if(client == null)
             {
-                throw new ArgumentNullException(nameof(client), "Client cannot be null.");
+                throw new ArgumentNullException("Client cannot be null.");
             }
             _clients.Add(client);
             return client;
@@ -53,7 +53,7 @@ namespace Automated_Railway_System.Models
         {
             if(ticket == null)
             {
-                throw new ArgumentNullException(nameof(ticket), "Ticket cannot be null.");
+                throw new ArgumentNullException("Ticket cannot be null.");
             }
             _tickets.Add(ticket);
         }
@@ -61,7 +61,7 @@ namespace Automated_Railway_System.Models
         {
             if(train == null)
             {
-                throw new ArgumentNullException(nameof(train), "Train cannot be null.");
+                throw new ArgumentNullException("Train cannot be null.");
             }
             _trains.Add(train);
             
@@ -77,7 +77,7 @@ namespace Automated_Railway_System.Models
                     return _clients[i];
                 }
             }
-            throw new ArgumentException($"Client with ID {ClientID} not found.", nameof(ClientID));
+            throw new ArgumentException($"Client with ID {ClientID} not found.");
         }
         public Ticket FindTicket(string TicketID)
         {
@@ -89,7 +89,7 @@ namespace Automated_Railway_System.Models
                     return _tickets[i];
                 }
             }
-            throw new ArgumentException($"Ticket with ID {TicketID} not found.", nameof(TicketID));
+            throw new ArgumentException($"Ticket with ID {TicketID} not found.");
         }
 
         public List<Ticket> GetAvailableTickets()

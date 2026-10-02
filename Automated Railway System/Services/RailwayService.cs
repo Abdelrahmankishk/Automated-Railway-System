@@ -45,7 +45,7 @@ namespace Automated_Railway_System.Services
             string address = ThemeHelper.Prompt("your address");
 
             ConsoleHelper.StationsConsole();
-            int StationChoice = int.Parse(ThemeHelper.Prompt("your preferred station)"));
+            int StationChoice = int.Parse(ThemeHelper.Prompt("your preferred station"));
             if (StationChoice < 1 || StationChoice > 9)
                 throw new ArgumentException("Enter a Valid Station Choice!");
             Stations PreferedStation = Stations.Alexandria;

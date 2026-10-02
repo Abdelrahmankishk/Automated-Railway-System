@@ -48,7 +48,7 @@ namespace Automated_Railway_System
                         case '6':
                             railwayService.HandleReservation();
                             break;
-                        case '7';
+                        case '7':
                             railwayService.HandleCancel();
                             break;
                         case '8':

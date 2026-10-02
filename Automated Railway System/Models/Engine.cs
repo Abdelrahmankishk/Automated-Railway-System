@@ -39,8 +39,7 @@ namespace Automated_Railway_System.Models
             return @$"-------------- {ID} ----------------
 Engine Type: {Type}
 Distance Traveled: {DistanceTraveled} km ({oilStatus}, {maintenanceStatus})
--------------------------------------
-";
+-------------------------------------";
         }
     }
 }

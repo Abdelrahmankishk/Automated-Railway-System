@@ -67,7 +67,7 @@ namespace Automated_Railway_System.Models
             ticketInfo.AppendLine($"Purchased Tickets for {Name} (Client ID: {ClientID}):");
             foreach (var ticket in _PurchasedTickets)
             {
-                ticketInfo.AppendLine($@"========================= Ticket ID: {ticket.TicketID} =============================
+                ticketInfo.Append($@"========================= Ticket ID: {ticket.TicketID} =============================
 Train: {ticket.train.Number} , Train Type: {ticket.train.Type}
 TravelDate: {ticket.TravelDate.ToString(Ticket.DateFormat)}
 Reservation Date: { ticket.ReservationDate!.Value.ToString(Ticket.DateFormat, CultureInfo.InvariantCulture)}
@@ -92,7 +92,6 @@ Age: {Age} - Pensioner: {isPensionerInfo}
 Address: {addressInfo}
 Date of Birth: {DateOfBirth.ToString(DateFormat, CultureInfo.InvariantCulture)}
 Prefered Station: {PreferedStation}
-Is Golden Client: {isGoldenInfo}
 Number of Travels: {TravelCount}
 Total Distance Traveled: {TotalTraveled} km
 Number of Purchased Tickets: {_PurchasedTickets.Count}";
