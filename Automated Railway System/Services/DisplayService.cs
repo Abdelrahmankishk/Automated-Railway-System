@@ -68,7 +68,7 @@ namespace Automated_Railway_System.Services
             List<Ticket> AvailableTickets = railwayStation.GetAvailableTickets();
             if (AvailableTickets.Count == 0)
             {
-                ThemeHelper.PrintError("No available tickets!");
+                ThemeHelper.PrintError("All Tickets are reserved!");
                 return;
             }
             else

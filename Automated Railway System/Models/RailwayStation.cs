@@ -25,9 +25,9 @@ namespace Automated_Railway_System.Models
             PhoneNumber = phoneNumber;
         }
         
-        public Client RegisterClient(string name, int Age,string Address ,bool isPensioner,string DateOfBirth, Stations PreferedStation, int totalCount, int TotalTraveled)
+        public Client RegisterClient(string name, int Age,string Address ,string DateOfBirth, Stations PreferedStation, int totalCount, int TotalTraveled)
         {
-            Client client = new Client(Age, name, Address, isPensioner, DateOfBirth, PreferedStation, totalCount, TotalTraveled);
+            Client client = new Client(Age, name, Address, DateOfBirth, PreferedStation, totalCount, TotalTraveled);
             _clients.Add(client);
             return client;
         }

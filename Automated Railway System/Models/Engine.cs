@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Automated_Railway_System.Models
 {
-    public class Engine : IDisplayable
+    public sealed class Engine : IDisplayable
     {
         private static int _Counter = 1000;
         const int OilChangeInterval = 20000;
