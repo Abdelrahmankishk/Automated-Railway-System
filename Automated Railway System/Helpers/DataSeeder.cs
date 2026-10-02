@@ -13,7 +13,7 @@ namespace Automated_Railway_System.Helpers
         public static RailwayStation SeedData()
         {
             // ======= Clients ======================================================================================
-            Client client1 = new Client(22, "Abdelrahman Keshk","Smouha, Alexandria","2004-04-25",Stations.Alexandria,51,9000);
+            Client client1 = new Client(22, "Abdelrahman Keshk","Smouha, Alexandria","2004-04-25",Stations.Alexandria,25,9000);
             Client client2 = new Client(23, "Omar Hassan", "Gleem, Alexandria", "1999-11-15", Stations.Mansoura, 52, 12000);
             Client client3 = new Client(24, "Mariam El-Sayed", "Maadi, Cairo", "2001-08-03", Stations.Cairo, 10, 15500);
             Client client4 = new Client(71, "Youssef Ibrahim", "Sidi Gaber, Alexandria", "1997-03-22", Stations.luxor, 53, 11000);

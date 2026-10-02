@@ -36,7 +36,7 @@ namespace Automated_Railway_System.Helpers
             Console.WriteLine("--------------------------------------------------------------------");
             ThemeHelper.PrintOption("0. Exit");
             Console.WriteLine("====================================================================");
-            Console.WriteLine("Enter your choice: ");
+            Console.Write("Enter your choice: ");
         }
     }
 }
