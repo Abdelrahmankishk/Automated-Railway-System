@@ -82,7 +82,8 @@ namespace Automated_Railway_System.Services
 
             Client newClient = new Client(age, name, address, dateOfBirth, PreferedStation, 0, 0);
 
-            _railwayStation.RegisterClient(newClient);
+            _railwayStation.RegisterClient(newClient); 
+            _displayService.ShowAddClientSuccess(newClient);
         }
 
         public void HandleCancel()

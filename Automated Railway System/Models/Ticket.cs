@@ -86,6 +86,7 @@ namespace Automated_Railway_System.Models
             {
                 throw new InvalidOperationException("Ticket is Not Reserved!"); 
             }
+            this.client.CancelTicket(this);
             this.client = null;
             FinalPrice = 0;
             Status = TicketStatus.Available;

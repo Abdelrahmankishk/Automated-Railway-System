@@ -15,6 +15,7 @@ namespace Automated_Railway_System.Models
         private static int _counter = 100;
         private readonly List<Ticket> _PurchasedTickets = new();
         private string DateFormat = "dd/MM/yyyy";
+        private bool isCanceled = false;
 
         public Client(int age, string name, string? address, string dateOfBirth, Stations preferedStation, int travelCount, int totalTraveled)
         {
@@ -48,9 +49,17 @@ namespace Automated_Railway_System.Models
         {
             if (ticket == null)
             {
-                throw new ArgumentNullException(nameof(ticket), "Ticket cannot be null.");
+                throw new ArgumentNullException("Ticket cannot be null.");
             }
             _PurchasedTickets.Add(ticket);
+        }
+        public void CancelTicket(Ticket ticket)
+        {
+            if (ticket == null)
+            {
+                throw new ArgumentNullException("Ticket cannot be null.");
+            }
+            isCanceled = true;
         }
         public bool IsBirthDay()
         {
@@ -67,15 +76,26 @@ namespace Automated_Railway_System.Models
             ticketInfo.AppendLine($"Purchased Tickets for {Name} (Client ID: {ClientID}):");
             foreach (var ticket in _PurchasedTickets)
             {
-                ticketInfo.Append($@"========================= Ticket ID: {ticket.TicketID} =============================
+                if (isCanceled)
+                {
+                    ticketInfo.Append($@"========================= Ticket ID: {ticket.TicketID}  {(isCanceled ? "The Ticket is CANCELED!" : "")} =============================
 Train: {ticket.train.Number} , Train Type: {ticket.train.Type}
 TravelDate: {ticket.TravelDate.ToString(Ticket.DateFormat)}
-Reservation Date: { ticket.ReservationDate!.Value.ToString(Ticket.DateFormat, CultureInfo.InvariantCulture)}
 Starting Station: {ticket.StartingStation}
 Destination Station: {ticket.DestinationStation}
-Final Ticket Price: {ticket.FinalPrice}
-===========================================================================
-");
+Final Ticket Price: {ticket.FinalPrice}" );
+
+                    isCanceled = false;
+                }
+                else { 
+                    ticketInfo.Append($@"========================= Ticket ID: {ticket.TicketID}=============================
+Train: {ticket.train.Number} , Train Type: {ticket.train.Type}
+TravelDate: {ticket.TravelDate.ToString(Ticket.DateFormat)}
+Reservation Date: {ticket.ReservationDate!.Value.ToString(Ticket.DateFormat, CultureInfo.InvariantCulture)}
+Starting Station: {ticket.StartingStation}
+Destination Station: {ticket.DestinationStation}
+Final Ticket Price: {ticket.FinalPrice}"); 
+                }
             }
             return ticketInfo.ToString();
         }
