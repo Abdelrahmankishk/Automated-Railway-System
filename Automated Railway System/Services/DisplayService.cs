@@ -103,7 +103,7 @@ namespace Automated_Railway_System.Services
                 ThemeHelper.PrintError("Client not found!");
                 return;
             }
-            ThemeHelper.PrintSuccess($"Ticket {ticket.TicketID} has been successfully reserved by Client: {client.Name}.");
+            ThemeHelper.PrintSuccess($"Ticket {ticket.TicketID} has been successfully reserved by Client: {client.Name}");
             ThemeHelper.PrintSuccess($"Reservation Date: {ticket.ReservationDate?.ToString("dd/MM/yyyy")}");
         }
         public void ShowTicketCancellationSuccess(Ticket ticket)
@@ -122,7 +122,16 @@ namespace Automated_Railway_System.Services
                 ThemeHelper.PrintError("Ticket not found!");
                 return;
             }
-            ThemeHelper.PrintSuccess($"Ticket {ticket.TicketID} has been successfully added to the system.");
+            ThemeHelper.PrintSuccess($"Ticket {ticket.TicketID} has been successfully added to the system");
+        }
+        public void ShowAddClientSuccess(Client client)
+        {
+            if (client == null)
+            {
+                ThemeHelper.PrintError("Client not found!");
+                return;
+            }
+            ThemeHelper.PrintSuccess($"Client {client.Name} with ID {client.ClientID} has been successfully added to the system");
         }
     }
 }
