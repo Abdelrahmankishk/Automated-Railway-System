@@ -10,10 +10,7 @@ namespace Automated_Railway_System
         static void Main(string[] args)
         {
             Console.WriteLine("Automated Railway System");
-            ConsoleHelper.StationsConsole();
-            int StationChoice = int.Parse(ThemeHelper.Prompt("your preferred station)"));
-            if (StationChoice < 1 || StationChoice > 9)
-                throw new ArgumentException("Enter a Valid Station Choice!");
+
         }
     }
 }

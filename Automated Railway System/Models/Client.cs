@@ -21,7 +21,7 @@ namespace Automated_Railway_System.Models
             ClientID = $"USER-{++_counter:D3}";
             Age = age;
             Name = name;
-            Pensoiner = Age >70 ? true : false;
+            Pensoiner = Age > 60 ? true : false;
             Address = address;
             DateOfBirth = DateOnly.ParseExact(dateOfBirth, "yyyy-MM-dd", CultureInfo.InvariantCulture);
             PreferedStation = preferedStation;
@@ -70,7 +70,7 @@ namespace Automated_Railway_System.Models
                 ticketInfo.AppendLine($@"========================= Ticket ID: {ticket.TicketID} =============================
 Train: {ticket.train.Number} , Train Type: {ticket.train.Type}
 TravelDate: {ticket.TravelDate.ToString(Ticket.DateFormat)}
-Reservation Date: { ticket.ReservationDate!.Value.ToString(Ticket.DateFormat)}
+Reservation Date: { ticket.ReservationDate!.Value.ToString(Ticket.DateFormat, CultureInfo.InvariantCulture)}
 Starting Station: {ticket.StartingStation}
 Destination Station: {ticket.DestinationStation}
 Final Ticket Price: {ticket.FinalPrice}
@@ -90,7 +90,7 @@ Client ID: {ClientID}
 Name: {Name}
 Age: {Age} - Pensioner: {isPensionerInfo}
 Address: {addressInfo}
-Date of Birth: {DateOfBirth.ToString(DateFormat)}
+Date of Birth: {DateOfBirth.ToString(DateFormat, CultureInfo.InvariantCulture)}
 Prefered Station: {PreferedStation}
 Is Golden Client: {isGoldenInfo}
 Number of Travels: {TravelCount}

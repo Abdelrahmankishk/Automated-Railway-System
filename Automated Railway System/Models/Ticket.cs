@@ -1,12 +1,13 @@
 ﻿using Automated_Railway_System.Contracts;
 using Automated_Railway_System.Models.Enums;
+using System.Globalization;
 
 namespace Automated_Railway_System.Models
 {
     public class Ticket : IReservable,IDisplayable
     {
         private static int _Counter = 0;
-        public const string DateFormat = "dd/MM/yyyy";
+        public const string DateFormat = "yyyy-MM-dd HH:mm:ss";
 
         public Ticket( decimal price, Train train, Stations startingStation, Stations destinationStation, TicketStatus status, int Distance = 0,DateTime TravelDate = default!)
         {
@@ -98,7 +99,7 @@ namespace Automated_Railway_System.Models
             return $@"------------- {TicketID} -------------
 Price: {price:C}
 Train: {train.Number} , Train Type: {train.Type}
-Travel Date: {TravelDate.ToString(DateFormat)}
+Travel Date: {TravelDate.ToString(DateFormat, CultureInfo.InvariantCulture)}
 Starting Station: {StartingStation}
 Destination Station: {DestinationStation}
 Total Distance: {Distance} km
