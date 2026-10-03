@@ -70,12 +70,13 @@ namespace Automated_Railway_System.Models
             {
                 if (ticket.IsCanceled)
                 {
-                    ticketInfo.AppendLine($@"========================= Ticket ID: {ticket.TicketID}  {(ticket.IsCanceled ? "The Ticket is CANCELED!" : "")} =============================
+                    ticketInfo.AppendLine($@"========================= Ticket ID: {ticket.TicketID}  ({(ticket.IsCanceled ? "The Ticket is CANCELED!" : "")}) =============================
 Train: {ticket.train.Number} , Train Type: {ticket.train.Type}
 TravelDate: {ticket.TravelDate.ToString(Ticket.DateFormat)}
+Reservation Date: {ticket.ReservationDate!.Value.ToString(Ticket.DateFormat, CultureInfo.InvariantCulture)}
 Starting Station: {ticket.StartingStation}
 Destination Station: {ticket.DestinationStation}
-Final Ticket Price: {ticket.FinalPrice}" );
+Final Ticket Price: {ticket.FinalPrice} EGP" );
 
                 }
                 else { 
@@ -85,7 +86,7 @@ TravelDate: {ticket.TravelDate.ToString(Ticket.DateFormat)}
 Reservation Date: {ticket.ReservationDate!.Value.ToString(Ticket.DateFormat, CultureInfo.InvariantCulture)}
 Starting Station: {ticket.StartingStation}
 Destination Station: {ticket.DestinationStation}
-Final Ticket Price: {ticket.FinalPrice}"); 
+Final Ticket Price: {ticket.FinalPrice} EGP"); 
                 }
             }
             return ticketInfo.ToString();

@@ -8,7 +8,7 @@ namespace Automated_Railway_System.Models
     public class Ticket : IReservable,IDisplayable
     {
         private static int _Counter = 0;
-        public const string DateFormat = "yyyy-MM-dd HH:mm:ss";
+        public const string DateFormat = "dd-MM-yyyy , (HH:mm:ss)";
 
         public Ticket( decimal price, Train train, Stations startingStation, Stations destinationStation, TicketStatus status, int Distance = 0,DateTime TravelDate = default!)
         {
@@ -75,8 +75,6 @@ namespace Automated_Railway_System.Models
             {
                 throw new InvalidOperationException($"{TicketID} is NOT available"); 
             }
-            //if (IsCanceled)
-            //    IsCanceled = false;
             this.client = client;
             FinalPrice = CalculateFinalPrice();
             Status = TicketStatus.Reserved;
@@ -95,9 +93,7 @@ namespace Automated_Railway_System.Models
                 throw new InvalidOperationException("Ticket is Not Reserved!"); 
             }
             this.client = null;
-            FinalPrice = 0;
             Status = TicketStatus.Cancelled;
-            ReservationDate = default;
             IsCanceled = true;
         }
 
@@ -106,7 +102,7 @@ namespace Automated_Railway_System.Models
         {
             string clientInfo = client != null ? $"Owned by : {client.Name}, ID: {client.ClientID} - Reserved on {ReservationDate?.ToString(DateFormat)}" : "Not Reserved";
             return $@"------------- {TicketID} -------------
-Price: {price:C}
+Price: {price} EGP
 Train: {train.Number} , Train Type: {train.Type}
 Travel Date: {TravelDate.ToString(DateFormat, CultureInfo.InvariantCulture)}
 Starting Station: {StartingStation}

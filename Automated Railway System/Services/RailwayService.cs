@@ -93,6 +93,9 @@ namespace Automated_Railway_System.Services
 
             canceledticket.CancelReservation();
             _displayService.ShowTicketCancellationSuccess(canceledticket);
+            
+            Ticket ReturnAvailableTicket = new Ticket(canceledticket.price, canceledticket.train, canceledticket.StartingStation,canceledticket.DestinationStation, TicketStatus.Available,canceledticket.Distance ?? 0, canceledticket.TravelDate);
+            _railwayStation.AddTicket(ReturnAvailableTicket);
         }
 
         public void HandleClientHistory()
