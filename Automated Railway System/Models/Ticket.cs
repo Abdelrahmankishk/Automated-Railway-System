@@ -1,6 +1,7 @@
 ﻿using Automated_Railway_System.Contracts;
 using Automated_Railway_System.Models.Enums;
 using System.Globalization;
+using System.Reflection.Metadata.Ecma335;
 
 namespace Automated_Railway_System.Models
 {
@@ -32,6 +33,7 @@ namespace Automated_Railway_System.Models
         public DateTime? ReservationDate { get; private set; }
         public DateTime TravelDate { get; init; }
         public int? Distance { get; init; }
+        public bool IsCanceled { get; private set; } = false;
 
         public decimal CalculateFinalPrice()
         {
@@ -69,6 +71,12 @@ namespace Automated_Railway_System.Models
             {
                 throw new InvalidOperationException("Ticket is already reserved!");
             }
+            if (IsCanceled)
+            {
+                throw new InvalidOperationException($"{TicketID} is NOT available"); 
+            }
+            //if (IsCanceled)
+            //    IsCanceled = false;
             this.client = client;
             FinalPrice = CalculateFinalPrice();
             Status = TicketStatus.Reserved;
@@ -86,11 +94,11 @@ namespace Automated_Railway_System.Models
             {
                 throw new InvalidOperationException("Ticket is Not Reserved!"); 
             }
-            this.client.CancelTicket(this);
             this.client = null;
             FinalPrice = 0;
-            Status = TicketStatus.Available;
+            Status = TicketStatus.Cancelled;
             ReservationDate = default;
+            IsCanceled = true;
         }
 
 
