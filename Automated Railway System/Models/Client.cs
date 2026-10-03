@@ -62,7 +62,7 @@ namespace Automated_Railway_System.Models
         {
             if (_PurchasedTickets.Count == 0)
             {
-                return "No tickets purchased.";
+                return "No tickets purchased";
             }
             var ticketInfo = new StringBuilder();
             ticketInfo.AppendLine($"Purchased Tickets for {Name} (Client ID: {ClientID}):");
@@ -76,7 +76,8 @@ TravelDate: {ticket.TravelDate.ToString(Ticket.DateFormat)}
 Reservation Date: {ticket.ReservationDate!.Value.ToString(Ticket.DateFormat, CultureInfo.InvariantCulture)}
 Starting Station: {ticket.StartingStation}
 Destination Station: {ticket.DestinationStation}
-Final Ticket Price: {ticket.FinalPrice} EGP" );
+Initial Price: {ticket.price} EGP
+Purchase Price: {ticket.FinalPrice} EGP" );
 
                 }
                 else { 
@@ -86,7 +87,8 @@ TravelDate: {ticket.TravelDate.ToString(Ticket.DateFormat)}
 Reservation Date: {ticket.ReservationDate!.Value.ToString(Ticket.DateFormat, CultureInfo.InvariantCulture)}
 Starting Station: {ticket.StartingStation}
 Destination Station: {ticket.DestinationStation}
-Final Ticket Price: {ticket.FinalPrice} EGP"); 
+Initial Price: {ticket.price} EGP
+Purchase Price: {ticket.FinalPrice} EGP"); 
                 }
             }
             return ticketInfo.ToString();

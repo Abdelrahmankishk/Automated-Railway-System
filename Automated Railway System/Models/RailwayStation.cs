@@ -77,7 +77,7 @@ namespace Automated_Railway_System.Models
                     return _clients[i];
                 }
             }
-            throw new ArgumentException($"Client with ID {ClientID} not found.");
+            throw new ArgumentException($"{ClientID} not found.");
         }
         public Ticket FindTicket(string TicketID)
         {
@@ -89,7 +89,7 @@ namespace Automated_Railway_System.Models
                     return _tickets[i];
                 }
             }
-            throw new ArgumentException($"Ticket with ID {TicketID} not found.");
+            throw new ArgumentException($"{TicketID} not found.");
         }
 
         public List<Ticket> GetAvailableTickets()

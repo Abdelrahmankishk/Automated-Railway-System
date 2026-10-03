@@ -40,7 +40,7 @@ namespace Automated_Railway_System.Helpers
             // ======= Tickets =======================================================================================
             Ticket ticket1 = new Ticket(200, train1, Stations.Alexandria, Stations.Cairo, TicketStatus.Available, 300, new DateTime(2027, 04, 25, 20, 30, 0));
             Ticket ticket2 = new Ticket(300, train2, Stations.Cairo, Stations.luxor, TicketStatus.Available, 300, new DateTime(2026, 11, 15, 21, 0, 0));
-            Ticket ticket3 = new Ticket(500, train3, Stations.Cairo, Stations.Cairo, TicketStatus.Available, 800, new DateTime(2027, 01, 10, 22, 0, 0));
+            Ticket ticket3 = new Ticket(500, train3, Stations.Cairo, Stations.Qena, TicketStatus.Available, 800, new DateTime(2027, 01, 10, 22, 0, 0));
             Ticket ticket4 = new Ticket(100, train1, Stations.Alexandria, Stations.Tanta, TicketStatus.Available, 120, new DateTime(2026, 12, 01, 12, 30, 0));
             Ticket ticket5 = new Ticket(700, train4, Stations.Cairo, Stations.Aswan, TicketStatus.Available, 1200, new DateTime(2027, 01, 15, 23, 45, 0));
             Ticket ticket6 = new Ticket(200, train2, Stations.Cairo, Stations.Sohag, TicketStatus.Available, 250, new DateTime(2026, 11, 15, 18, 00, 0));

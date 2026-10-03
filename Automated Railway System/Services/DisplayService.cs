@@ -103,8 +103,8 @@ namespace Automated_Railway_System.Services
                 ThemeHelper.PrintError("Client not found!");
                 return;
             }
-            ThemeHelper.PrintSuccess($"Ticket {ticket.TicketID} has been successfully reserved by Client: {client.Name}");
-            ThemeHelper.PrintSuccess($"Reservation Date: {ticket.ReservationDate?.ToString("dd/MM/yyyy")}");
+            ThemeHelper.PrintSuccess($"{ticket.TicketID} has been successfully reserved by Client: {client.Name}");
+            ThemeHelper.PrintSuccess($"Reservation Date: {ticket.ReservationDate?.ToString("dd/MM/yyyy , (HH:mm:ss)")}");
         }
         public void ShowTicketCancellationSuccess(Ticket ticket)
         {
@@ -113,7 +113,7 @@ namespace Automated_Railway_System.Services
                 ThemeHelper.PrintError("Ticket not found!");
                 return;
             }
-            ThemeHelper.PrintSuccess($"Reservation for Ticket {ticket.TicketID} has been successfully Canceled");
+            ThemeHelper.PrintSuccess($"Reservation for {ticket.TicketID} has been successfully Canceled");
         }
         public void ShowAddTicketSuccess(Ticket ticket)
         {
@@ -122,7 +122,7 @@ namespace Automated_Railway_System.Services
                 ThemeHelper.PrintError("Ticket not found!");
                 return;
             }
-            ThemeHelper.PrintSuccess($"Ticket {ticket.TicketID} has been successfully added to the system");
+            ThemeHelper.PrintSuccess($"{ticket.TicketID} has been successfully added to the system");
         }
         public void ShowAddClientSuccess(Client client)
         {
@@ -131,7 +131,7 @@ namespace Automated_Railway_System.Services
                 ThemeHelper.PrintError("Client not found!");
                 return;
             }
-            ThemeHelper.PrintSuccess($"Client {client.Name} with ID {client.ClientID} has been successfully added to the system");
+            ThemeHelper.PrintSuccess($"Client :{client.Name} with ID {client.ClientID} has been successfully added to the system");
         }
     }
 }

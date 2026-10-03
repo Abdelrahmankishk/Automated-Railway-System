@@ -33,9 +33,9 @@ namespace Automated_Railway_System.Helpers
             ThemeHelper.PrintOption("6. Reserve Ticket");
             ThemeHelper.PrintOption("7. Cancel Ticket");
             ThemeHelper.PrintOption("8. Register New Client");
-            Console.WriteLine("--------------------------------------------------------------------");
+            Console.WriteLine("----------------------------------------");
             ThemeHelper.PrintOption("0. Exit");
-            Console.WriteLine("====================================================================");
+            Console.WriteLine("========================================");
             Console.Write("Enter your choice: ");
         }
     }

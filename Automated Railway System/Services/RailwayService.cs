@@ -42,7 +42,7 @@ namespace Automated_Railway_System.Services
 
             string dateOfBirth = $"{YearOfBirth:D4}-{MonthOfBirth:D2}-{DayOfBirth:D2}";
 
-            string address = ThemeHelper.Prompt("your address");
+            string address = ThemeHelper.Prompt("your Home address");
 
             ConsoleHelper.StationsConsole();
             int StationChoice = int.Parse(ThemeHelper.Prompt("your preferred station"));

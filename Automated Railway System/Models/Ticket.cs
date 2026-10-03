@@ -8,7 +8,7 @@ namespace Automated_Railway_System.Models
     public class Ticket : IReservable,IDisplayable
     {
         private static int _Counter = 0;
-        public const string DateFormat = "dd-MM-yyyy , (HH:mm:ss)";
+        public const string DateFormat = "dd/MM/yyyy , (HH:mm:ss)";
 
         public Ticket( decimal price, Train train, Stations startingStation, Stations destinationStation, TicketStatus status, int Distance = 0,DateTime TravelDate = default!)
         {
