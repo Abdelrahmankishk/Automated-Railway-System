@@ -338,9 +338,7 @@ Invalid input and invalid business operations are handled using exceptions to ke
 
 ## 📊 UML Class Diagram
 
-The implemented system was designed from a UML class diagram that represents the main entities, relationships, attributes, and operations of the railway domain.
-
-![Automated Railway System UML Diagram](Images/Automated_Railway_System_UML.png)
+The implemented system was designed from a UML class diagram (in the Images folder) that represents the main entities, relationships, attributes, and operations of the railway domain.
 
 ---
 
